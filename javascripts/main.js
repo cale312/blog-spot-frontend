@@ -45,6 +45,7 @@ function disLikeBlog(_id) {
   })
 }
 
+// function to get all comments
 function getComments(_id) {
   return $.getJSON(apiUrl + _id);
 }
@@ -112,6 +113,17 @@ function AppViewModel() {
       type: "POST", contentType: "application/json",
       success: (result) => {
         alert('Comment sent');
+        location.reload();
+      }
+    });
+  }
+
+  self.delete = (evt) => {
+    blogId = evt.id;
+    $.ajax(apiUrl + blogId + '/delete', {
+      type: "POST",
+      success: (result) => {
+        alert('blog deleted');
         location.reload();
       }
     });

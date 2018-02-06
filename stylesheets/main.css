@@ -28,7 +28,7 @@
     padding: 35px !important;
 }
 
-.card-action a .material-icons {
+.card-action a .material-icons, .delete {
     cursor: pointer;
 }
 

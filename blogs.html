@@ -56,6 +56,9 @@
             <div data-bind="visible: data, foreach: blogs">
                 <div class="col s12 m6">
                     <div class="card transparent darken-1 hoverable">
+                        <div data-bind="click: $parent.delete" class="delete">
+                            <i class="right material-icons white-text">delete</i>
+                        </div>
                         <div class="card-content white-text">
                             <span class="card-title">
                                 <strong><small data-bind="text: date"></small></strong>
