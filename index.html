@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blogger | Home</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Local css files -->
+    <link rel="stylesheet" href="./stylesheets/materialize/css/materialize.css">
+    <link rel="stylesheet" href="./stylesheets/main.css">
+</head>
+<nav class="red lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="index.html" class="brand-logo">
+            <i class="material-icons">code</i>
+        </a>
+        <ul class="right hide-on-med-and-down">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="blogs.html">Blogs</a>
+            </li>
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="blogs.html">Blogs</a>
+            </li>
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse">
+            <i class="white-text text-darken-4 material-icons">menu</i>
+        </a>
+    </div>
+</nav>
+<body>
+
+    <div class="container">
+        <center>
+            <span data-bind="html: loader"></span>
+        </center>
+    </div>
+
+    <!-- Local javascript files -->
+    <script src="./javascripts/knockout-3.4.2.js"></script>
+    <script src="./javascripts/jquery-3.3.1.min.js"></script>
+    <script src="./stylesheets/materialize/js/materialize.js"></script>
+    <script src="./javascripts/main.js"></script>
+</body>
+
+</html>
