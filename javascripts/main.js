@@ -27,8 +27,9 @@ function likeBlog(_id) {
     type: "POST",
     success: (result) => {
       console.log(result);
-      alert('You liked this post!');
-      location.reload();
+      setTimeout( () => {
+        location.reload();
+      }, 3000);
     }
   })
 }
@@ -39,8 +40,9 @@ function disLikeBlog(_id) {
     type: "POST",
     success: (result) => {
       console.log(result);
-      alert('You disliked this post!');
-      location.reload();
+      setTimeout( () => {
+        location.reload();
+      }, 2100);
     }
   })
 }
@@ -78,6 +80,19 @@ function AppViewModel() {
       self.loader('<p class="red-text">oops! something went wrong!</p>');
     })
 
+  self.post = () => {
+    let data = {
+      blog: $('.blog').val()
+    };
+    $.ajax(apiUrl, {
+      data: JSON.stringify(data),
+      type: "POST", contentType: "application/json",
+      success: (result) => {
+        location.reload();
+      }
+    });
+  }
+
   self.like = (evt) => {
     blogId = evt.id;
     likeBlog(blogId);
@@ -107,13 +122,13 @@ function AppViewModel() {
     let data = {
       comment: $('.comment').val()
     };
-    console.log(blogId);
     $.ajax(apiUrl + blogId + '/comment', {
       data: JSON.stringify(data),
       type: "POST", contentType: "application/json",
       success: (result) => {
-        alert('Comment sent');
-        location.reload();
+        setTimeout( () => {
+          location.reload();
+        }, 2100);
       }
     });
   }
