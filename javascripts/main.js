@@ -29,7 +29,7 @@ function likeBlog(_id) {
       console.log(result);
       setTimeout( () => {
         location.reload();
-      }, 3000);
+      }, 2100);
     }
   })
 }
