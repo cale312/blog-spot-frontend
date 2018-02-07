@@ -49,10 +49,27 @@
 
     <div class="container">
         <div class="row">
+
+            <!-- New post input field -->
+            <div class="container">
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <textarea id="textarea1" class="materialize-textarea blog" required></textarea>
+                                <label for="textarea1">what's on your mind</label>
+                                <button type="submit" class="btn" data-bind="click: post">submit <i class="material-icons">send</i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <center>
                 <br><br><br>
                 <span data-bind="html: loader"></span>
             </center>
+
             <div data-bind="visible: data, foreach: blogs">
                 <div class="col s12 m6">
                     <div class="card transparent darken-1 hoverable">
@@ -70,9 +87,9 @@
                             <i class="yellow-text new badge" data-bind="text: $data"></i>
                         </div>
                         <div class="card-action">
-                            <a class="white-text" data-bind="click: $parent.like"><i class="material-icons">thumb_up</i><i data-bind="text: likes"></i></a>
-                            <a class="white-text" data-bind="click: $parent.dislike"><i class="material-icons">thumb_down</i><i data-bind="text: dislikes"></i></a>
-                            <a href="#modal1" class="white-text modal-trigger" data-bind="click: $parent.getComments"><i class="material-icons">chat</i><i data-bind="text: comments"></i></a>
+                            <a class="white-text" data-bind="click: $parent.like" onclick="Materialize.toast('You like this post!', 2000)"><i class="material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am a tooltip">thumb_up</i><i data-bind="text: likes"></i></a>
+                            <a class="white-text" data-bind="click: $parent.dislike" onclick="Materialize.toast('You disliked this post!', 2000)"><i class="material-icons">thumb_down</i><i data-bind="text: dislikes"></i></a>
+                            <a href="#comment-modal" class="white-text modal-trigger" data-bind="click: $parent.getComments"><i class="material-icons">chat</i><i data-bind="text: comments"></i></a>
                         </div>
                     </div>
                 </div>
@@ -80,7 +97,7 @@
         </div>
 
         <!-- Modal Structure for All The Comments -->
-        <div id="modal1" class="modal bottom-sheet" style="padding: 45px;">
+        <div id="comment-modal" class="modal bottom-sheet" style="padding: 45px;">
             <div class="container">
                 <div class="row">
                     <form class="col s12">
@@ -90,7 +107,7 @@
                                 <textarea id="textarea1" class="materialize-textarea comment"></textarea>
                                 <label for="textarea1">Textarea</label>
                             </div>
-                            <button class="btn" data-bind="click: comment">Post <i class="material-icons">send</i></button>
+                            <button class="btn" data-bind="click: comment" onclick="Materialize.toast('Comment sent', 2000)">Post <i class="material-icons">send</i></button>
                         </div>
                     </form>
                 </div>
@@ -114,6 +131,7 @@
                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red white-text">close</a>
             </div>
         </div>
+
     </div>
 
     <!-- Local javascript files -->
@@ -123,6 +141,7 @@
     <script src="./javascripts/main.js"></script>
     <script src="./javascripts/navBar.js"></script>
     <script src="./javascripts/modals.js"></script>
+    <script src="./javascripts/tooltips.js"></script>
 </body>
 
 </html>
