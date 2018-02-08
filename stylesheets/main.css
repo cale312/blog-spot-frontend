@@ -14,10 +14,7 @@ body {
 
 .section {
     cursor: pointer !important;
-}
-
-.section:hover {
-    background: linear-gradient(to right, white, rgba(2, 2, 2, 0.1), white);
+/*    border: solid 10px 0px;*/
 }
 
 .blogs {
@@ -32,10 +29,9 @@ body {
     }
 }
 
-.card {
-    background: url('http://i.imgur.com/lDDB0R0.png');
-    background-size: cover;
-    padding: 35px !important;
+.comments {
+    overflow: auto;
+    height: 320px
 }
 
 .card-action a .material-icons, .delete {
@@ -43,7 +39,7 @@ body {
 }
 
 .card-action a .material-icons:hover {
-    color: rgba(255, 255, 255, 0.589);
+    color: darkorange;
 }
 
 .footer {
