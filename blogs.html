@@ -51,21 +51,42 @@
 
     <div>
         <div class="row">
-            <div class="container">
+            <center>
                 <br>
-                <div class="col s12 card hoverable section container black-text">
-                    <div class="container">
-                        <span class="card-title"><small><strong>2018-09-20</strong></small></span>
-                        <hr>
-                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                        <br>
-                        <span class="blue-text">#codeLife</span>
-                        <span class="blue-text">#312</span>
-                        <span class="blue-text">#programmersLife</span>
-                        <div class="card-action">
-                            <a href="#"><i class="material-icons">thumb_up</i>2</a>
-                            <a href="#"><i class="material-icons">thumb_down</i>11</a>
-                            <a href="#"><i class="material-icons modal-trigger" href="#modal1">chat</i>20</a>
+                <br>
+                <br>
+                <span data-bind="html: loader"></span>
+            </center>
+            <div class="container">
+                <div data-bind="foreach: blogs">
+                    <br>
+                    <div class="col s12 card hoverable section container black-text">
+                        <div class="container">
+                            <span class="card-title">
+                                <small>
+                                    <strong data-bind="text: date"></strong>
+                                </small>
+                            </span>
+                            <hr>
+                            <p data-bind="text: blog"></p>
+                            <br>
+                            <div data-bind="foreach: hashtags">
+                                <span class="blue-text" data-bind="text: $data"></span>
+                            </div>
+                            <div class="card-action">
+                                <a href="" data-bind="click: $parent.like" onclick="Materialize.toast('You like this post!', 2000)">
+                                    <i class="material-icons">thumb_up</i>
+                                    <i data-bind="text: likes"></i>
+                                </a>
+                                <a href="" data-bind="click: $parent.dislike" onclick="Materialize.toast('You like this post!', 2000)">
+                                    <i class="material-icons">thumb_down</i>
+                                    <i data-bind="text: dislikes"></i>
+                                </a>
+                                <a href="" data-bind="click: $parent.getComments">
+                                    <i class="material-icons modal-trigger" href="#modal1">chat</i>
+                                    <i data-bind="text: comments"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -73,47 +94,58 @@
                 <!-- modal structure for blog and comments -->
                 <div class="card black darken-1 modal" id="modal1">
                     <div class="card-content white-text">
-                        <span class="modal-close right"><i class="material-icons">close</i></span>
-                        <span class="card-title"><small><strong>2018-09-20</strong></small></span>
+                        <span class="modal-close right">
+                            <i class="material-icons">close</i>
+                        </span>
+                        <span class="card-title">
+                            <small>
+                                <strong>2018-09-20</strong>
+                            </small>
+                        </span>
                         <hr>
-                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because
+                            I require little markup to use effectively.</p>
                         <br>
                         <span class="blue-text">#codeLife</span>
                         <span class="blue-text">#312</span>
                         <span class="blue-text">#programmersLife</span>
                     </div>
                     <div class="card-action">
-                        <a href="#"><i class="material-icons">thumb_up</i>2</a>
-                        <a href="#"><i class="material-icons">thumb_down</i>11</a>
-                        <a href="#"><i class="material-icons">chat</i>20</a>
+                        <a href="" data-bind="click: $parent.like" onclick="Materialize.toast('You like this post!', 2000)">
+                            <i class="material-icons">thumb_up</i>
+                            <i data-bind="text: likes"></i>
+                        </a>
+                        <a href="" data-bind="click: $parent.dislike" onclick="Materialize.toast('You like this post!', 2000)">
+                            <i class="material-icons">thumb_down</i>
+                            <i data-bind="text: dislikes"></i>
+                        </a>
+                        <a href="" data-bind="click: $parent.getComments">
+                            <i class="material-icons modal-trigger" href="#modal1">chat</i>
+                            <i data-bind="text: comments"></i>
+                        </a>
                     </div>
                     <div class="comments">
-                        <div class="white container">
-                            <div class="card-action">
-                                <span><small>2018-29-12</small></span>
-                                <span class="right light-blue-text"><small>@cale_oasin</small></span>
-                                <hr>
-                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                        <div data-bind="foreach: comments">
+                            <div class="white container">
                                 <div class="card-action">
-                                    <a href="#"><i class="material-icons">thumb_up</i>2</a>
-                                    <a href="#"><i class="material-icons">thumb_down</i>11</a>
+                                    <span>
+                                        <small data-bind="text: date"></small>
+                                    </span>
+                                    <span class="right light-blue-text">
+                                        <small>@cale_oasin</small>
+                                    </span>
+                                    <hr>
+                                    <p data-bind="text: comment"></p>
+                                    <div class="card-action">
+                                        <a href="">
+                                            <i class="material-icons">thumb_up</i>2</a>
+                                        <a href="">
+                                            <i class="material-icons">thumb_down</i>11</a>
+                                    </div>
                                 </div>
                             </div>
+                            <br>
                         </div>
-                        <br>
-                        <div class="white container">
-                            <div class="card-action">
-                                <span><small>2018-29-12</small></span>
-                                <span class="right light-blue-text"><small>@zikisa_sogaxa</small></span>
-                                <hr>
-                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-                                <div class="card-action">
-                                    <a href="#"><i class="material-icons">thumb_up</i>2</a>
-                                    <a href="#"><i class="material-icons">thumb_down</i>11</a>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
                     </div>
                 </div>
                 <!-- modal ends here -->
