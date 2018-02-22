@@ -57,6 +57,8 @@
                 <br>
                 <span data-bind="html: loader"></span>
             </center>
+
+            <!-- blogs go here -->
             <div class="container">
                 <div data-bind="foreach: blogs">
                     <br>
@@ -93,37 +95,38 @@
 
                 <!-- modal structure for blog and comments -->
                 <div class="card black darken-1 modal" id="modal1">
-                    <div class="card-content white-text">
-                        <span class="modal-close right">
-                            <i class="material-icons">close</i>
-                        </span>
-                        <span class="card-title">
-                            <small>
-                                <strong>2018-09-20</strong>
-                            </small>
-                        </span>
-                        <hr>
-                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because
-                            I require little markup to use effectively.</p>
-                        <br>
-                        <span class="blue-text">#codeLife</span>
-                        <span class="blue-text">#312</span>
-                        <span class="blue-text">#programmersLife</span>
+                    <div data-bind="foreach: blog">
+                        <div class="card-content white-text">
+                            <span class="modal-close right">
+                                <i class="material-icons">close</i>
+                            </span>
+                            <span class="card-title">
+                                <small>
+                                    <strong data-bind="text: date"></strong>
+                                </small>
+                            </span>
+                            <hr>
+                            <p data-bind="text: blogPost"></p>
+                            <br>
+                            <span class="blue-text" data-bind="text: $data"></span>
+                        </div>
+                        <div class="card-action">
+                            <a href="" data-bind="" onclick="Materialize.toast('You like this post!', 2000)">
+                                <i class="material-icons">thumb_up</i>
+                                <i data-bind="text: likes"></i>
+                            </a>
+                            <a href="" data-bind="click: $parent.dislike" onclick="Materialize.toast('You like this post!', 2000)">
+                                <i class="material-icons">thumb_down</i>
+                                <i data-bind="text: dislikes"></i>
+                            </a>
+                            <a href="" data-bind="click: $parent.getComments">
+                                <i class="material-icons modal-trigger" href="#modal1">chat</i>
+                                <i data-bind="text: comments"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="card-action">
-                        <a href="" data-bind="click: $parent.like" onclick="Materialize.toast('You like this post!', 2000)">
-                            <i class="material-icons">thumb_up</i>
-                            <i data-bind="text: likes"></i>
-                        </a>
-                        <a href="" data-bind="click: $parent.dislike" onclick="Materialize.toast('You like this post!', 2000)">
-                            <i class="material-icons">thumb_down</i>
-                            <i data-bind="text: dislikes"></i>
-                        </a>
-                        <a href="" data-bind="click: $parent.getComments">
-                            <i class="material-icons modal-trigger" href="#modal1">chat</i>
-                            <i data-bind="text: comments"></i>
-                        </a>
-                    </div>
+
+                    <!-- comments go in here -->
                     <div class="comments">
                         <div data-bind="foreach: comments">
                             <div class="white container">
@@ -147,6 +150,7 @@
                             <br>
                         </div>
                     </div>
+                    <!-- comments end here -->
                 </div>
                 <!-- modal ends here -->
             </div>
